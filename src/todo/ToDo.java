@@ -5,8 +5,9 @@
  */
 package todo;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,12 +16,34 @@ import java.util.Scanner;
  */
 public class ToDo {
 
+    List<Task> taskList = new ArrayList<>();
+
     /**
      * @param args the command line arguments
      */
+    private void addTask(Task task) {
+        taskList.add(task);
+    }
+
+    private void removeTask(int id) {
+
+        for (Task task : taskList) {
+            if (task.getId() == id) {
+                taskList.remove(task);
+            }
+        }
+    }
+
+    private void showTask() {
+
+        for (Task task : taskList) {
+            System.out.println(task.getId() + "- " + task.getName());
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        ArrayList<String> task = new ArrayList<>();
+
         Scanner sc = new Scanner(System.in);
         int id = 0, i = 0, op;
 
@@ -31,26 +54,17 @@ public class ToDo {
             switch (op) {
                 case 1:
                     System.out.println("New task: ");
-                    task.add(sc.nextLine());
-                     System.in.read();
-                    System.out.println(task);
-                   //
+                    addTask(sc.nextLine());
+                    System.in.read();
+                    
+                    //
                     break;
                 case 2:
-                    System.out.println("ID task remove: ");
-                    task.get(id = sc.nextInt());
-                    System.out.println("Remover task " + task.toString() + "?");
-                    String choice = null;
-                    if (choice.equals("nao")) {
-                        System.out.println("Task not removed");
-                    } else {
-                        task.remove(0);
-                    }
+                    int d = sc.nextInt();
+                   removeTask(d);
                     break;
                 case 3:
-                    System.out.println("View List");
-                    for (i = 0; i < task.size(); i++) {
-                        System.out.println(task.get(i));
+                 showTask();
 
                     }
 
@@ -61,4 +75,3 @@ public class ToDo {
     }
 
 }
-
