@@ -40,7 +40,7 @@ public static void main(String[] args) {
 
                 case 2:
                     int d = sc.nextInt();
-                  taskList.remove(id);
+                  taskList.remove(d);
                     break;
                 case 3:
                  for (int i = 0; i < taskList.size(); i++) {
