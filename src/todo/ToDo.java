@@ -1,3 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package todo;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+/**
 
 package todo;
 import java.util.ArrayList;
@@ -24,6 +34,7 @@ public static void main(String[] args) {
         
            ArrayList<String> taskList = new ArrayList<>();
            Scanner sc = new Scanner(System.in);
+           Scanner taskScan = new Scanner(System.in);
       
        
         int id = 0, op;
@@ -35,7 +46,7 @@ public static void main(String[] args) {
             switch (op) {
                 case 1:
                     System.out.print("New Task: ");
-                    taskList.add("não consigo inputar por scanner");
+                    taskList.add(taskScan.nextLine());
                   //
                     break;
 
@@ -44,10 +55,12 @@ public static void main(String[] args) {
                   taskList.remove(d);
                     break;
                 case 3:
+                    System.out.println("Lista");
                  for (int i = 0; i < taskList.size(); i++) {
-            System.out.println(  i + "-" + taskList.get(i));
-break;
+            System.out.println(  "  ["+i + "] -" + taskList.get(i));
+
                     }
+                 break;
             }
                     
             
